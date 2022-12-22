@@ -1,21 +1,27 @@
 #include "main.h"
-
+#include <stdio.h>
 /**
- * print_number -print number putchar
- * @n:integer
- * Return: void
+ * rot13 - encode using rot13
+ * @s: variable
+ * Return: Always 0 (Success)
  */
-void print_number(int n)
+char *rot13(char *s)
 {
-	unsigned int x = n;
+	int i = 0, i2 = 0;
+	char alpha[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char alpha2[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
 
-	if (n < 0)
+	while (*(s + i) != 0)
 	{
-		_putchar('-');
-		x = -x;
+		for (i2 = 0; i2 <= 52; i2++)
+		{
+			if (*(s + i) == alpha[i2])
+			{
+				*(s + i) = alpha2[i2];
+				break;
+			}
+		}
+				i++;
 	}
-	if ((x / 10) > 0)
-		print_number(x / 10);
-
-	_putchar(x % 10 + '0');
+		return (s);
 }
