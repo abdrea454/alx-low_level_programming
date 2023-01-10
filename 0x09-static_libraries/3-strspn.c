@@ -12,6 +12,7 @@
 
 unsigned int _strspn(char *s, char *accept)
 {
+
 	unsigned int count1, count2;
 
 	for (count1 = 0; s[count1] != '\0'; count1++)
@@ -23,10 +24,10 @@ unsigned int _strspn(char *s, char *accept)
 				break;
 			}
 		}
-		if (!(accept[count2]))
-		{
-			break;
-		}
+			if (!(accept[count2]))
+			{
+				break;
+			}
 	}
 	return (count1);
 }

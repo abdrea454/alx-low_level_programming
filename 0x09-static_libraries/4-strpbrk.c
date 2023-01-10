@@ -1,25 +1,27 @@
 #include "main.h"
 
 /**
- * _strstr - Entry point
- * @haystack: input
- * @needle: input
- * Return: Always 0 (Success)
+ * _strpbrk -  searches a string for any of a set of bytes.
+ *
+ * @s: char pointer
+ *
+ * @accept: char pointer
+ *
+ * Return: string
  */
-char *_strstr(char *haystack, char *needle)
-{
-	for (; *haystack != '\0'; haystack++)
-	{
-		char *l = haystack;
-		char *p = needle;
 
-		while (*l == *p && *p != '\0')
+char *_strpbrk(char *s, char *accept)
+{
+	unsigned int counter;
+
+	for (; *s != '\0'; s++)
+	{
+		for (counter = 0; accept[counter] != '\0'; counter++)
 		{
-			l++;
-			p++;
+
+			if (*s == accept[counter])
+				return (s);
 		}
-		if (*p == '\0')
-			return (haystack);
 	}
 	return (0);
 }
